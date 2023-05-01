@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://u5hc3oyjtdxe"]
+[gd_scene load_steps=13 format=3 uid="uid://u5hc3oyjtdxe"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_kwrdg"]
 [ext_resource type="PackedScene" uid="uid://h3fme6fbvonv" path="res://Scenes/Mob.tscn" id="2_xd0fu"]
@@ -11,6 +11,9 @@ size = Vector3(60, 2, 60)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0bh3w"]
 size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vuje0"]
+size = Vector3(35, 5, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a0877"]
 albedo_color = Color(0.854902, 0.14902, 0.247059, 1)
@@ -47,6 +50,22 @@ mesh = SubResource("BoxMesh_0bh3w")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Ground"]
 transform = Transform3D(0.221549, 0.975149, 0, 4.26251e-08, -9.6842e-09, 1, 0.975149, -0.221549, -4.37114e-08, 0, 1.28706, 0)
 shadow_enabled = true
+
+[node name="Wall North" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0120027, 3.75203, -14.0851)
+shape = SubResource("BoxShape3D_vuje0")
+
+[node name="Wall South" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012, 3.75249, 15.085)
+shape = SubResource("BoxShape3D_vuje0")
+
+[node name="Wall East" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18, 3.88949, 0.135)
+shape = SubResource("BoxShape3D_vuje0")
+
+[node name="Wall West" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 3.75249, -0.135)
+shape = SubResource("BoxShape3D_vuje0")
 
 [node name="Player" parent="." instance=ExtResource("3_pj33o")]
 
